@@ -9,7 +9,7 @@ export const site = {
     "My work sits at the intersection of agentic AI — including WALT at Werfen — geometric deep learning, and interactive 3D systems.",
   description:
     "Portfolio of Diego Zidane Reyes Gomez, an AI engineer and researcher working on WALT, agentic systems, machine learning, computer vision, graph neural networks, and XR.",
-  url: "https://diego-reyes.vercel.app",
+  url: "https://dreyesgomez.vercel.app",
   resumeHref: "/Resume.pdf",
   resumeAvailable: true,
   links: {

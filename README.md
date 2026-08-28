@@ -36,4 +36,4 @@ Place the real PDF at `public/resume.pdf`, then set `resumeAvailable: true` in `
 
 ## Deploy
 
-The app is Vercel-compatible. Set `site.url` in `src/content/site.ts` to the production domain before launch.
+Live site: [https://dreyesgomez.vercel.app](https://dreyesgomez.vercel.app)

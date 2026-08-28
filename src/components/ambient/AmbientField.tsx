@@ -30,8 +30,11 @@ function parseRgb(value: string) {
 }
 
 function isTouchOnly() {
-  const fine = window.matchMedia("(pointer: fine)").matches;
-  const hover = window.matchMedia("(hover: hover)").matches;
+  // Use any-pointer / any-hover so a mouse still counts on Windows
+  // laptops whose *primary* pointer is a touchscreen. Chrome reports
+  // pointer: coarse there; Cursor's embedded browser often does not.
+  const fine = window.matchMedia("(any-pointer: fine)").matches;
+  const hover = window.matchMedia("(any-hover: hover)").matches;
   return !fine && !hover;
 }
 
@@ -82,7 +85,12 @@ function particleCount(width: number, height: number, lowPower: boolean, touchOn
 
 export function AmbientField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const pointerRef = useRef({ x: -1e4, y: -1e4, inside: false });
+  const pointerRef = useRef({
+    x: -1e4,
+    y: -1e4,
+    inside: false,
+    fine: false,
+  });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -94,7 +102,7 @@ export function AmbientField() {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const touchOnly = isTouchOnly();
     const lowPower = isLowPower();
-    const cursorEnabled = !reducedMotion && !touchOnly;
+    const cursorEnabled = !reducedMotion;
 
     let particles: Particle[] = [];
     let width = 0;
@@ -149,7 +157,7 @@ export function AmbientField() {
               particle.amplitude *
               0.82;
 
-          if (cursorEnabled && pointer.inside) {
+          if (cursorEnabled && pointer.inside && pointer.fine) {
             let dx = particle.x - pointer.x;
             let dy = particle.y - pointer.y;
             let dist = Math.hypot(dx, dy);
@@ -221,11 +229,24 @@ export function AmbientField() {
       pointerRef.current.x = event.clientX;
       pointerRef.current.y = event.clientY;
       pointerRef.current.inside = true;
+      pointerRef.current.fine = event.pointerType !== "touch";
     };
 
-    const onPointerLeave = (event: PointerEvent | MouseEvent) => {
-      const next = "relatedTarget" in event ? event.relatedTarget : null;
-      if (next) return;
+    const onMouseMove = (event: MouseEvent) => {
+      const fromTouch = Boolean(
+        "sourceCapabilities" in event &&
+          (event as MouseEvent & { sourceCapabilities?: { firesTouchEvents?: boolean } })
+            .sourceCapabilities?.firesTouchEvents,
+      );
+      if (fromTouch) return;
+      pointerRef.current.x = event.clientX;
+      pointerRef.current.y = event.clientY;
+      pointerRef.current.inside = true;
+      pointerRef.current.fine = true;
+    };
+
+    const onPointerLeaveWindow = (event: PointerEvent | MouseEvent) => {
+      if (event.relatedTarget) return;
       pointerRef.current.inside = false;
     };
 
@@ -237,7 +258,8 @@ export function AmbientField() {
 
     window.addEventListener("resize", resize, { passive: true });
     window.addEventListener("pointermove", onPointerMove, { passive: true });
-    document.documentElement.addEventListener("mouseleave", onPointerLeave);
+    window.addEventListener("mousemove", onMouseMove, { passive: true });
+    document.addEventListener("mouseout", onPointerLeaveWindow);
     window.addEventListener("blur", () => {
       pointerRef.current.inside = false;
     });
@@ -247,7 +269,8 @@ export function AmbientField() {
       window.cancelAnimationFrame(frame);
       window.removeEventListener("resize", resize);
       window.removeEventListener("pointermove", onPointerMove);
-      document.documentElement.removeEventListener("mouseleave", onPointerLeave);
+      window.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseout", onPointerLeaveWindow);
       themeObserver.disconnect();
     };
   }, []);
