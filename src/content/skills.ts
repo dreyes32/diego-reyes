@@ -8,6 +8,7 @@ export const skills: SkillGroup[] = [
     label: "AI / ML",
     items: [
       "RAG / LLM agents",
+      "Prompt engineering",
       "Vector search",
       "Graph neural networks",
       "PyTorch",
@@ -17,19 +18,27 @@ export const skills: SkillGroup[] = [
   },
   {
     label: "Languages",
-    items: ["Python", "TypeScript", "JavaScript", "C++", "Go"],
+    items: ["Python", "TypeScript", "JavaScript", "C++", "Go", "Kotlin", "R"],
   },
   {
     label: "Graphics / XR",
-    items: ["Unreal Engine 5", "C++ gameplay", "Niagara", "3D meshes"],
+    items: ["Unreal Engine 5", "C++ gameplay", "Niagara", "3D meshes", "Figma"],
   },
   {
     label: "Web / Software",
-    items: ["Next.js", "React", "Tailwind CSS", "FastAPI", "PostgreSQL"],
+    items: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "FastAPI",
+      "PostgreSQL",
+      "Android / Kotlin",
+      "HTML / CSS",
+    ],
   },
   {
     label: "Cloud / Infra",
-    items: ["AWS", "S3", "Docker", "MCP", "REST APIs"],
+    items: ["AWS", "S3", "Docker", "MCP", "REST APIs", "Postman"],
   },
   {
     label: "Signals / Research",

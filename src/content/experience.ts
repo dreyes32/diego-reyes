@@ -2,7 +2,7 @@ export type Experience = {
   id: string;
   organization: string;
   role: string;
-  dates: string;
+  dates?: string;
   location?: string;
   focus: string;
   summary: string;
@@ -16,9 +16,9 @@ export const experience: Experience[] = [
     role: "AI Engineer Intern",
     dates: "June 2026 — September 2026",
     location: "San Diego, CA",
-    focus: "WALT, RAG, multi-agent systems",
+    focus: "WALT, RAG, Marketing & Digital Innovation",
     summary:
-      "I developed a RAG-based Marketing Agent inside WALT, Werfen’s multi-agent AI platform, to automate research and response generation for high-volume technical product inquiries. I built document-grounded retrieval, intent classification, clarification, and escalation across five product lines, and engineered document-family matching from normalized SAP metadata so retrieval stayed on the right manuals, languages, and revisions.",
+      "I developed a RAG-based Marketing Agent inside WALT, Werfen’s multi-agent AI platform, to automate research and response generation for high-volume technical product inquiries from global affiliates — a manual workflow that often took multiple days. I built document-grounded retrieval, intent classification, clarification, and escalation across five product lines so answers stayed inside validated documentation, and engineered document-family matching from normalized SAP metadata, identifiers, language, revisions, and file variants. I also added multilingual query handling, automated email generation, and AWS S3 part-number image retrieval, then checked model behavior, API payloads, filters, and fallbacks with regression tests and Postman.",
     technologies: ["Python", "RAG", "AWS S3", "MCP", "Postman"],
   },
   {
@@ -67,6 +67,17 @@ export const experience: Experience[] = [
     ],
   },
   {
+    id: "sdsc-android",
+    organization: "San Diego Supercomputer Center",
+    role: "Android Developer Intern",
+    dates: "June 2023 — June 2026",
+    location: "San Diego, CA",
+    focus: "Android, Kotlin, plant-growth tracking",
+    summary:
+      "I built Bloom Book, an Android app for plant growth tracking, with a responsive UI and data-driven visualization. I used Android Studio and Kotlin for interactive features and a database for growth monitoring, and designed wireframes and interactive prototypes in Figma before implementation.",
+    technologies: ["Kotlin", "Android Studio", "Figma"],
+  },
+  {
     id: "cogsci",
     organization: "UC San Diego Cognitive Science Department",
     role: "UE Developer & Research Assistant",
@@ -76,6 +87,16 @@ export const experience: Experience[] = [
     summary:
       "In the Systems Neuroscience Lab I supported Unreal Engine development for VR experiments on self-motion and trajectory perception, including controlled motion parameters, stimulus timing, and data-logging pipelines for behavioral analysis.",
     technologies: ["Unreal Engine", "VR", "HCI", "Experimental systems"],
+  },
+  {
+    id: "cogsci-ia",
+    organization: "UC San Diego Cognitive Science Department",
+    role: "Instructional Assistant & Programming Tutor",
+    location: "La Jolla, CA",
+    focus: "Teaching, web, Python, UX, R",
+    summary:
+      "I supported COGS 3 students through foundational web assignments in HTML, CSS, and JavaScript. For COGS 18 I led weekly Python labs, helped with assignments, proctored coding exams, and wrote a Google Apps Script to flag students who needed extra support. In COGS 187A I mentored students on usability, information architecture, and XR interface design in Figma, and in COGS 160 I assisted with data processing, visualization, and time-series analysis in R.",
+    technologies: ["HTML", "CSS", "JavaScript", "Python", "Figma", "R"],
   },
   {
     id: "cognovate",

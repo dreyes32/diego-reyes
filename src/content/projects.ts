@@ -22,19 +22,19 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "agentic-ai-werfen",
+    slug: "walt",
     title: "WALT",
     summary:
-      "A RAG Marketing Agent inside Werfen’s multi-agent platform — document-grounded answers, routing, and escalation for technical product inquiries.",
+      "A RAG Marketing Agent inside WALT, Werfen’s multi-agent platform — document-grounded answers, routing, and escalation for technical product inquiries.",
     category: "AI Systems",
     featured: true,
     problem:
       "Global affiliates sent high-volume technical product questions that often took multiple days of manual research to resolve, and answers had to stay inside validated documentation.",
     role: "AI Engineer Intern, Marketing & Digital Innovation. I built and tested the Marketing Agent inside WALT.",
     built:
-      "I developed document-grounded retrieval, intent classification, clarification, and escalation across five product lines. I added document-family matching and routing from normalized SAP metadata — identifiers, language, revisions, file variants — plus multilingual query handling, automated email generation, and AWS S3 part-number image retrieval. Behavior, API payloads, filters, and fallbacks were checked with regression tests and Postman.",
+      "I developed document-grounded retrieval, intent classification, clarification, and escalation across five product lines so responses were generated from validated technical documentation and unsupported answers were blocked. I added document-family matching and routing from normalized SAP metadata — identifiers, language, revisions, file variants — plus multilingual query handling, automated email generation, and AWS S3 part-number image retrieval. I worked with Marketing and Digital Innovation stakeholders to turn those requirements into production-ready workflows, configure instrument-specific knowledge connectors, and check model behavior, API payloads, filters, and fallbacks with regression tests and Postman.",
     architecture:
-      "WALT is a multi-agent platform. The Marketing Agent retrieves from instrument-specific knowledge connectors, generates only from those documents, and clarifies or escalates when the evidence cannot support an answer. Internal service names, customer data, and proprietary diagrams are omitted here.",
+      "WALT is Werfen’s multi-agent AI platform. The Marketing Agent retrieves from instrument-specific knowledge connectors, generates only from those documents, and clarifies or escalates when the evidence cannot support an answer. Internal service names, customer data, and proprietary diagrams are omitted here.",
     challenges:
       "The hard part is keeping generation inside the evidence, routing to the correct document family, and handling multilingual queries without mixing unrelated manuals.",
     outcome:
@@ -143,6 +143,18 @@ export const projects: Project[] = [
       "PostgreSQL",
       "Docker Compose",
     ],
+  },
+  {
+    slug: "bloom-book",
+    title: "Bloom Book",
+    summary:
+      "An Android app for plant growth tracking — Kotlin UI, a local database, and Figma-first interaction design.",
+    category: "Software Engineering",
+    featured: true,
+    role: "Android Developer Intern, San Diego Supercomputer Center.",
+    built:
+      "I built Bloom Book in Android Studio and Kotlin with a responsive, data-driven UI and interactive features for logging plant growth. A database stores growth records. I designed wireframes and interactive prototypes in Figma to settle user flows before implementation.",
+    technologies: ["Kotlin", "Android Studio", "Figma"],
   },
 ];
 

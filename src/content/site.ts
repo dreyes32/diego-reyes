@@ -6,9 +6,9 @@ export const site = {
   headline:
     "I build intelligent systems across AI engineering, machine learning, computer vision, and human-computer interaction.",
   summary:
-    "My work sits at the intersection of agentic AI — including WALT at Werfen — geometric deep learning, and interactive 3D systems.",
+    "My work sits at the intersection of retrieval-augmented systems — including WALT at Werfen — geometric deep learning, and interactive 3D systems.",
   description:
-    "Portfolio of Diego Zidane Reyes Gomez, an AI engineer and researcher working on WALT, agentic systems, machine learning, computer vision, graph neural networks, and XR.",
+    "Portfolio of Diego Zidane Reyes Gomez, an AI engineer and researcher working on WALT, RAG systems, machine learning, computer vision, graph neural networks, and XR.",
   url: "https://dreyesgomez.vercel.app",
   resumeHref: "/Resume.pdf",
   resumeAvailable: true,

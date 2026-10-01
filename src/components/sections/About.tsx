@@ -17,11 +17,12 @@ export function About() {
             studying the 3D geometry those systems have to live inside.
           </p>
           <p>
-            At Werfen I build WALT, an agentic AI system for enterprise
-            workflows. Retrieval, document-grounded generation, clarification,
-            and escalation are engineering problems first. At UC San Diego I
-            study graph neural networks for mesh optimization, so XR scenes can
-            keep the vertices that matter.
+            At Werfen I built a RAG Marketing Agent inside WALT, a multi-agent
+            platform for technical product inquiries. Retrieval,
+            document-grounded generation, clarification, and escalation are
+            engineering problems first. At UC San Diego I study graph neural
+            networks for mesh optimization, so XR scenes can keep the vertices
+            that matter.
           </p>
           <p>
             HCI and Unreal Engine sit underneath that work, not on top of it. I

@@ -32,7 +32,7 @@ Do not invent metrics, repositories, or screenshots. If a field is empty, leave 
 
 ## Resume
 
-Place the real PDF at `public/resume.pdf`, then set `resumeAvailable: true` in `src/content/site.ts`.
+The resume PDF lives at `public/Resume.pdf`. Set `resumeAvailable: true` in `src/content/site.ts`.
 
 ## Deploy
 

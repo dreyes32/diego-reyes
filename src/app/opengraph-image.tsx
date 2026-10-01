@@ -29,7 +29,7 @@ export default function OpenGraphImage() {
             AI Engineer & Researcher
           </div>
           <div style={{ marginTop: 28, fontSize: 24, color: "#a8a195", maxWidth: 820 }}>
-            WALT · Agentic AI · RAG · graph neural networks · XR
+            WALT · RAG · graph neural networks · XR
           </div>
         </div>
       </div>
